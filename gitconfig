@@ -1,1 +1,63 @@
-/Users/mac/.gitconfig
+[user]
+	name = SiddharthShyniben
+	email = siddharth.muscat@gmail.com
+[init]
+	defaultBranch = main
+[color]
+  ui = auto
+[alias]
+	unadd = reset
+	aliases = !git config --get-regexp alias | sed -re 's/alias\\.(\\S*)\\s(.*)$/\\1 = \\2/g'
+	ci = commit
+  co = checkout
+  st = status
+  lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+  oops = commit --amend --no-edit
+  push-with-lease = push --force-with-lease
+  rebase-with-hooks = rebase -x 'git reset --soft HEAD~1 && git commit -C HEAD@{1}'
+  review-local = "!git lg @{push}.."
+  reword = commit --amend
+  uncommit = reset --soft HEAD~1
+  untrack = rm --cache --
+[core]
+	pager = cat
+	excludesfile = ~/.gitignore_global
+	editor = nvim
+	whitespace = -trailing-space
+	symlinks = true
+[diff]
+	mnemonicPrefix = true
+	renames = true
+	wordRegex = .
+	submodule = log
+	difftool = vimdiff
+[grep]
+  break = true
+  heading = true
+  lineNumber = true
+  extendedRegexp = true
+[log]
+  abbrevCommit = true
+  follow = true
+  decorate = false
+[mergetool]
+  keepBackup = false
+  keepTemporaries = false
+  writeToTemp = true
+  prompt = false
+[page]
+  show = diff-so-fancy | less --tabs=4 -RFX
+[status]
+  submoduleSummary = true
+  showUntrackedFiles = all
+[color "branch"]
+  upstream = cyan
+[tag]
+	sort = version:refname
+[versionsort]
+  prereleaseSuffix = -pre
+  prereleaseSuffix = .pre
+  prereleaseSuffix = -beta
+  prereleaseSuffix = .beta
+  prereleaseSuffix = -rc
+  prereleaseSuffix = .rc
